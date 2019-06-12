@@ -4,7 +4,5 @@ version = "0.1.0"
 authors = ["ankitb"]
 
 [dependencies]
-confy = "*"
 nix = "*"
-serde = "*"
-serde_derive = "*"
+util = { path = "../util" }
