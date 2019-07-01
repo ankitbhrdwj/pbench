@@ -1,3 +1,10 @@
 */target/*
 *.lock
-
+*.pdf
+ContextSwitchBench
+thread_sched_yield
+process_sched_yield
+getpid
+nonexistent
+thread-switch-pipe
+*.gz
