@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <errno.h>
+#include <sys/resource.h>
 
 static const int iterations = 1000000;
 
@@ -22,6 +24,13 @@ void* thread() {
 }
 
 int main(void) {
+	int which = PRIO_PROCESS;
+	int priority = -20;
+	id_t pid = getpid();
+	int ret = setpriority(which, pid, priority);
+	if (ret)
+		fprintf(stderr, "setpriority(): %s\n", strerror(errno));
+
 	const pid_t childPid = fork();
 	unsigned long long start = 0, stop = 0;
 
